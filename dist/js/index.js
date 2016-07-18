@@ -1,7 +1,8 @@
 $(document).ready(function() {
   $('#btnGetLocation').click(function() {
     var lc = new locationHelper();
-    var location = lc.getLocation();
-    $('#dvContent').text(location);
+    lc.getLocation(function(position) {
+      $('#dvContent').text(position.latitude + ',' + position.longitude);
+    });
   });
 });
